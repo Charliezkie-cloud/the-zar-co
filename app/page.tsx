@@ -34,14 +34,28 @@ export default function Home() {
             <Button href="/contact" size="lg">
               Book a Free Strategy Call <MoveRight className="size-4" />
             </Button>
-            <Link href="/services" className="text-sm font-semibold text-muted hover:text-ink transition-colors underline underline-offset-4 decoration-border hover:decoration-ink">
+            <Link href="/services" className="inline-flex gap-2 items-center justify-center text-sm font-semibold text-muted hover:text-ink transition-colors underline underline-offset-4 decoration-border hover:decoration-ink">
               See our services <MoveRight className="size-4" />
             </Link>
           </div>
           <p className="mt-3 text-xs text-muted/70">No pressure. Just a 20-minute chat about your goals.</p>
         </div>
+
+        {/* Stats */}
+        <div className="mt-20 flex flex-wrap gap-10 sm:gap-16">
+          {stats.map(({ value, label }, index) => {
+            return (
+              <div key={`hero-stats-${index}`} className="flex flex-col gap-1">
+                <span className="font-heading font-extrabold text-3xl sm:text-4xl text-primary">{value}</span>
+                <span className="text-sm text-muted">{label}</span>
+              </div>
+            )
+          })}
+        </div>
       
       </section>
+
+      
     </div>
   );
 }
