@@ -1,6 +1,6 @@
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { BadgeDollarSign, Bot, ChartLine, FolderCode, LayoutTemplate, ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, SquareCode, Settings, Zap, ChartColumnBig, ShoppingCart, Store } from "lucide-react";
 import Link from "next/link";
 
 const stats = [
@@ -10,18 +10,23 @@ const stats = [
 ];
 
 const services = [
-  { label: "Web Development", icon: <LayoutTemplate className="size-5" /> },
-  { label: "Business Automation", icon: <Bot className="size-5" /> },
-  { label: "Google & Meta Ads", icon: <BadgeDollarSign className="size-5" /> },
-  { label: "Analytics & Tracking", icon: <ChartLine className="size-5" /> },
-  { label: "Ecommerce Dev", icon: <FolderCode className="size-5" /> },
-  { label: "Shopify Development", icon: <ShoppingBag className="size-5" /> },
+  { label: "Web Development", icon: <SquareCode className="h-5 w-5 text-primary" /> },
+  { label: "Business Automation", icon: <Settings className="h-5 w-5 text-primary" /> },
+  { label: "Google & Meta Ads", icon: <Zap className="h-5 w-5 text-primary" /> },
+  { label: "Analytics & Tracking", icon: <ChartColumnBig className="h-5 w-5 text-primary" /> },
+  { label: "Ecommerce Dev", icon: <ShoppingCart className="h-5 w-5 text-primary" /> },
+  { label: "Shopify Development", icon: <Store className="h-5 w-5 text-primary" /> },
 ];
 
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
-      
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute top-1/2 -left-32 w-[320px] h-[320px] rounded-full bg-primary/4 blur-3xl" />
+      </div>
+
       {/* Hero section */}
       <section className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-28 lg:pt-28 lg:pb-36">
         <div className="max-w-4xl">
@@ -69,14 +74,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-muted mb-10">What we do</p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {services.map(({label, icon }, index) => {
               return (
                 <Link key={`service-${index}`} href="/services" className="group inline-flex gap-3 items-center justify-center gap-2 p-4 rounded-xl bg-white border border-border hover:border-primary/40 hover:shadow-sm transition-all text-center">
+                  {icon}
                   <span className="text-sm font-medium text-ink/80 group-hover:text-primary transition-colors leading-snug">
                     {label}
                   </span>
-                  {icon}
                 </Link>
               )
             })}
