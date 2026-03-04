@@ -1,12 +1,21 @@
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import { MoveRight } from "lucide-react";
+import { BadgeDollarSign, Bot, ChartLine, FolderCode, LayoutTemplate, ArrowRight, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 
 const stats = [
   { value: "2s", label: "Page load target" },
   { value: "10+", label: "Hours saved weekly" },
   { value: "6", label: "Core services" },
+];
+
+const services = [
+  { label: "Web Development", icon: <LayoutTemplate className="size-5" /> },
+  { label: "Business Automation", icon: <Bot className="size-5" /> },
+  { label: "Google & Meta Ads", icon: <BadgeDollarSign className="size-5" /> },
+  { label: "Analytics & Tracking", icon: <ChartLine className="size-5" /> },
+  { label: "Ecommerce Dev", icon: <FolderCode className="size-5" /> },
+  { label: "Shopify Development", icon: <ShoppingBag className="size-5" /> },
 ];
 
 export default function Home() {
@@ -32,10 +41,10 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Button href="/contact" size="lg">
-              Book a Free Strategy Call <MoveRight className="size-4" />
+              Book a Free Strategy Call <ArrowRight className="size-4" />
             </Button>
             <Link href="/services" className="inline-flex gap-2 items-center justify-center text-sm font-semibold text-muted hover:text-ink transition-colors underline underline-offset-4 decoration-border hover:decoration-ink">
-              See our services <MoveRight className="size-4" />
+              See our services <ArrowRight className="size-4" />
             </Link>
           </div>
           <p className="mt-3 text-xs text-muted/70">No pressure. Just a 20-minute chat about your goals.</p>
@@ -55,7 +64,47 @@ export default function Home() {
       
       </section>
 
-      
+      {/* Services teaser section */}
+      <section className="border-t border-border bg-surface">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-muted mb-10">What we do</p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {services.map(({label, icon }, index) => {
+              return (
+                <Link key={`service-${index}`} href="/services" className="group inline-flex gap-3 items-center justify-center gap-2 p-4 rounded-xl bg-white border border-border hover:border-primary/40 hover:shadow-sm transition-all text-center">
+                  <span className="text-sm font-medium text-ink/80 group-hover:text-primary transition-colors leading-snug">
+                    {label}
+                  </span>
+                  {icon}
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Why us teaser section */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
+        <div className="bg-ink rounded-3xl p-10 sm:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
+          
+          <div className="relative max-w-xl">
+
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary/70 mb-3">Tech meets creative</p>
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white leading-tight text-balance">
+              Most agencies build pretty sites that don&apos;t sell. We build
+              systems that grow your revenue.
+            </h2>
+
+          </div>
+          
+          <Button href="/why-us" variant="outline" size="lg">
+            Why The Zar Co.
+          </Button>
+        </div>
+      </section>
+
     </div>
   );
 }

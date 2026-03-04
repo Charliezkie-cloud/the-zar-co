@@ -56,26 +56,26 @@ export default function Navbar() {
           </div>
         </button>
 
-        {/* Mobile navigation */}
-        {menuOpen && (
-          <div className="md:hidden border-t border-border bg-white px-6 py-4 flex flex-col gap-1">
-            {navLinks.map(({ href, label }, index) => {
-              const isActive = href === pathname;
-
-              return (
-                <Link key={`mobile-nav-link-${index}`} href={href} className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive ? "text-primary bg-primary-light" : "text-muted hover:text-ink hover:bg-surface"}`}>
-                  {label}
-                </Link>
-              )
-            })}
-
-            <div className="mt-3 pt-3 border-t border-border">
-              <Button href="/contact" fullWidth onClick={() => setMenuOpen(false)}>Book a Free Call</Button>
-            </div>
-          </div>
-        )}
-
       </nav>
+
+      {/* Mobile navigation */}
+      {menuOpen && (
+        <div className="md:hidden border-t border-border bg-white px-6 py-4 flex flex-col gap-1">
+          {navLinks.map(({ href, label }, index) => {
+            const isActive = href === pathname;
+
+            return (
+              <Link key={`mobile-nav-link-${index}`} href={href} className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive ? "text-primary bg-primary-light" : "text-muted hover:text-ink hover:bg-surface"}`}>
+                {label}
+              </Link>
+            )
+          })}
+
+          <div className="mt-3 pt-3 border-t border-border">
+            <Button href="/contact" fullWidth onClick={() => setMenuOpen(false)}>Book a Free Call</Button>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
