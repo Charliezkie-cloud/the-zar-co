@@ -1,5 +1,9 @@
 import { ArrowRight } from "lucide-react";
+
+import Image from "next/image";
 import Link from "next/link";
+
+import Logo from "@/public/Logo.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,8 +23,7 @@ export default function Footer() {
           <div className="max-w-xs">
             <div className="flex items-center gap-2.5 mb-4">
 
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-heading font-bold text-sm">Z</div>
-              <span className="font-heading font-semibold text-white text-lg">The Zar Co.</span>
+              <Image src={Logo} alt="Logo" height={250} />
 
             </div>
             <p className="text-sm text-white/50 leading-relaxed">

@@ -31,7 +31,7 @@ export default function Home() {
       <section className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-28 lg:pt-28 lg:pb-36">
         <div className="max-w-4xl">
 
-          <Badge>Ecommerce Agency</Badge>
+          <Badge>Ecommerce Business Consultant</Badge>
         
           <h1 className="mt-6 font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] tracking-tight text-ink text-balance">
             We build ecommerce experiences

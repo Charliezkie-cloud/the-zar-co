@@ -2,7 +2,7 @@ import Link from "next/link";
 
 type props = {
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   fullWidth?: boolean;
@@ -19,6 +19,7 @@ const sizes = {
 
 const variants = {
   primary: "bg-primary text-white hover:bg-primary-mid shadow-sm hover:shadow-md hover:shadow-primary/20 active:scale-[0.98]",
+  secondary: "bg-gray-200 text-primary hover:bg-gray-300 shadow-sm hover:shadow-md hover:shadow-gray-300/20 active:scale-[0.98]",
   outline: "border border-primary text-primary hover:bg-primary-light active:scale-[0.98]",
   ghost: "text-primary hover:bg-primary-light active:scale-[0.98]"
 };

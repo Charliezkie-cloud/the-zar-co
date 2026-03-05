@@ -74,8 +74,7 @@ export default function ProcessPage() {
                 <ProcessStep key={`process-step-item-${index}`}
                               step={step}
                               title={title}
-                              description={description}
-                              isLast={index === steps.length - 1} />
+                              description={description} />
               )
             })}
           </div>
